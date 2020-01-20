@@ -101,3 +101,17 @@ export default App;
 // cardTitle: PropTypes.string,
 // cardDescription: PropTypes.string,
 // cardLink: PropTypes.string
+
+// window.addEventListener("DOMContentLoaded", event => {
+//   const commentButton = document.getElementsByClassName("card-comment-toggle");
+//   commentButton.addEventListener("click", toggleComment);
+
+//   function toggleComment() {
+//     let commentSection = document.getElementsByClassName("commentSection");
+//     if (commentSection.style.display === "none") {
+//       commentSection.style.display = "block";
+//     } else {
+//       commentSection.style.display = "none";
+//     }
+//   }
+// });

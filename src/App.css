@@ -9091,3 +9091,13 @@ input[type=range]::-ms-thumb {
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+/* Card overwriting */
+.card-comment-toggle {
+  display: inline-block;
+}
+
+.likeImage {
+  display: inline-block;
+  float: right;
+}
