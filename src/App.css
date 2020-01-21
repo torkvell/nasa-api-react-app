@@ -6204,7 +6204,7 @@ textarea.materialize-textarea[readonly="readonly"] + label {
   color: rgba(0, 0, 0, 0.42);
 }
 
-input:not([type]):focus:not([readonly]),
+/* input:not([type]):focus:not([readonly]),
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
@@ -6220,7 +6220,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #26a69a;
   -webkit-box-shadow: 0 1px 0 0 #26a69a;
           box-shadow: 0 1px 0 0 #26a69a;
-}
+} */
 
 input:not([type]):focus:not([readonly]) + label,
 input[type=text]:not(.browser-default):focus:not([readonly]) + label,
@@ -9149,4 +9149,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   padding-left: 25px;
   border-bottom: none;
   width: 94%;
+}
+
+#siteLogo{
+  max-width: 60px;
 }
