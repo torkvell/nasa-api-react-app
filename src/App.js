@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import CardItem from "./components/Card";
+import LikeCounter from "./components/LikeCounter";
 
 function App() {
   return (

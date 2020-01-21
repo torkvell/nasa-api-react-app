@@ -9097,7 +9097,10 @@ input[type=range]::-ms-thumb {
   display: inline-block;
 }
 
-.likeImage {
+/* like-button styles */
+.likeCounter,
+.likeButton {
+  padding: 5px;
+  vertical-align: middle;
   display: inline-block;
-  float: right;
 }
