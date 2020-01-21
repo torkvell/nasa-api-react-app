@@ -17,7 +17,7 @@ export default class cardFooter extends React.Component {
         <div class="card-action">
           <a href={this.props.cardLink}>MORE INFO</a>
           <div onClick={this.toggleCommentSection} class="card-comment-toggle">
-            Comment
+            Comments
           </div>
           <LikeCounter />
         </div>
@@ -25,7 +25,11 @@ export default class cardFooter extends React.Component {
           class="commentSection"
           style={{ display: this.state.showComment ? "block" : "none" }}
         >
-          <input type="text" placeholder="Type your comment.."></input>
+          <input
+            class="commentInput"
+            type="text"
+            placeholder="Type your comment.."
+          ></input>
           <button id="commentButton">Publish</button>
           <div class="commentResult">Comments</div>
         </div>
