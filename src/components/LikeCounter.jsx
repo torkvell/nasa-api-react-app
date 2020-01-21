@@ -14,7 +14,7 @@ export default class LikeCounter extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div id="likeDiv">
         <img
           className="likeButton"
           src={this.state.src}

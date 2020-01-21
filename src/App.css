@@ -9104,3 +9104,16 @@ input[type=range]::-ms-thumb {
   vertical-align: middle;
   display: inline-block;
 }
+
+
+/* card action style*/
+.card-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+#commentButton{
+    width: 100%;
+    height: 40px;
+    margin-top: -10px;
+}

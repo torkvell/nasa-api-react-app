@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import LikeCounter from "./LikeCounter";
+import CardFooter from "./CardFooter";
 
 export default class CardItem extends Component {
   render() {
@@ -15,16 +15,7 @@ export default class CardItem extends Component {
             <div class="card-content">
               <p>{this.props.cardDescription}</p>
             </div>
-            <div class="card-action">
-              <a href={this.props.cardLink}>MORE INFO</a>
-              <div class="card-comment-toggle">Comment</div>
-              <LikeCounter />
-            </div>
-          </div>
-          <div class="commentSection">
-            <input type="text" placeholder="Type your comment.."></input>
-            <button>Publish</button>
-            <div class="commentResult">{this.props.comment}</div>
+            <CardFooter />
           </div>
         </div>
       </div>
