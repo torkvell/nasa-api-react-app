@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import LikeCounter from "./LikeCounter";
 
 export default class CardItem extends Component {
   render() {
@@ -17,15 +18,13 @@ export default class CardItem extends Component {
             <div class="card-action">
               <a href={this.props.cardLink}>MORE INFO</a>
               <div class="card-comment-toggle">Comment</div>
-              <div class="likeImage">
-                <img src="/img/2.png"></img>
-              </div>
+              <LikeCounter />
             </div>
-            <div class="commentSection">
-              <input type="text" placeholder="Type your comment.."></input>
-              <button>Publish</button>
-              <div class="commentResult">{this.props.comment}</div>
-            </div>
+          </div>
+          <div class="commentSection">
+            <input type="text" placeholder="Type your comment.."></input>
+            <button>Publish</button>
+            <div class="commentResult">{this.props.comment}</div>
           </div>
         </div>
       </div>
