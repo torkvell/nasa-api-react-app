@@ -49,12 +49,7 @@ class App extends React.Component {
           <div class="container">
             <div class="section">
               {/* <!--   Card Section   --> */}
-              <CardItem
-                imgSrc="https://materializecss.com/images/sample-1.jpg"
-                cardTitle="Test Title"
-                cardDescription="Description goes here"
-                cardLink="./someotherpage.html"
-              />
+              <CardItem />
             </div>
             <br />
             <br />

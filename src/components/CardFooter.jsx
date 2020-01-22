@@ -1,17 +1,39 @@
 import React from "react";
 import LikeCounter from "./LikeCounter";
+import AddComment from "./AddComment";
+import Comment from "./Comment";
 
 export default class cardFooter extends React.Component {
   state = {
-    showComment: false
+    showComment: false,
+    comments: []
   };
+
   toggleCommentSection = () => {
     this.setState({
       showComment: !this.state.showComment
     });
   };
+
+  addComment = comment => {
+    let newComment = {
+      id: Math.round(Math.random() * 100000),
+      comment
+    };
+    this.setState({
+      comments: this.state.comments.concat(newComment)
+    });
+  };
+
+  renderComment = comment => {
+    console.log(comment);
+    return <Comment text={comment.comment} key={comment.id} />;
+  };
+
   render() {
-    const { imageUrl, title, description } = this.props;
+    // copying the array of players because `.sort()` **mutates!**
+    const comments_copy = [...this.state.comments];
+    console.log(comments_copy); // <!-- add console.log's if you're not sure!
     return (
       <div>
         <div class="card-action">
@@ -20,18 +42,13 @@ export default class cardFooter extends React.Component {
             Comments
           </div>
           <LikeCounter />
-        </div>
-        <div
-          class="commentSection"
-          style={{ display: this.state.showComment ? "block" : "none" }}
-        >
-          <input
-            class="commentInput"
-            type="text"
-            placeholder="Type your comment.."
-          ></input>
-          <button id="commentButton">Publish</button>
-          <div class="commentResult">Comments</div>
+          <div
+            class="commentSection"
+            style={{ display: this.state.showComment ? "block" : "none" }}
+          >
+            <AddComment addComment={this.addComment} />
+          </div>
+          <div>{comments_copy.map(this.renderComment)}</div>
         </div>
       </div>
     );
