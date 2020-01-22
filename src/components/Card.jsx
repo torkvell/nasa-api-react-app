@@ -19,12 +19,12 @@ export default class CardItem extends Component {
       .then(response => response.json())
       // converted to json
       .then(response => {
-        console.log(response);
         //turn response object into array
         const dataArray = response.photos.reduce((array, item) => {
           array.push(item);
           return array;
         }, []);
+        console.log(dataArray);
         // put it in component local state
         this.setState({
           loading: false,
@@ -43,7 +43,7 @@ export default class CardItem extends Component {
       return <div>{this.state.error}</div>;
     } else {
       const cardArray = this.state.data.map(dataItem => (
-        <div class="row">
+        <div class="row" key={dataItem.id}>
           <div class="col s12 m7">
             <div class="card">
               <div class="card-image">
@@ -62,23 +62,6 @@ export default class CardItem extends Component {
       return <div>{cardArray}</div>;
     }
   }
-}
-
-{
-  /* <div class="row">
-<div class="col s12 m7">
-  <div class="card">
-    <div class="card-image">
-      <img src={this.props.imgSrc} />
-      <span class="card-title">{this.props.cardTitle}</span>
-    </div>
-    <div class="card-content">
-      <p>{this.props.cardDescription}</p>
-    </div>
-    <CardFooter />
-  </div>
-</div>
-</div> */
 }
 
 CardItem.propTypes = {
