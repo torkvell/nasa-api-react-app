@@ -77,8 +77,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// imgSrc: PropTypes.string,
-// cardTitle: PropTypes.string,
-// cardDescription: PropTypes.string,
-// cardLink: PropTypes.string
