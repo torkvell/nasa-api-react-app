@@ -9096,6 +9096,7 @@ input[type=range]::-ms-thumb {
 .card-comment-toggle {
   display: inline-block;
   cursor: pointer;
+  margin-left: 10%;
 }
 
 a{
@@ -9112,15 +9113,20 @@ a{
   cursor: pointer;
 }
 
+#likeDiv {
+  display: inline-block;
+  margin-left: 18%;
+}
+
 
 /* card action style*/
 .card-action {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   border-bottom: 1px solid rgba(160, 160, 160, 0.2);
 }
 
-#commentButton{
+.commentButton{
     width: 100%;
     height: 40px;
     margin-top: -8px;
@@ -9146,11 +9152,16 @@ a{
 }
 
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
-  padding-left: 25px;
+  padding-left: 5px;
   border-bottom: none;
-  width: 94%;
+  width: 100%;
 }
 
 #siteLogo{
   max-width: 60px;
+}
+
+p.commentText {
+  border-bottom: 1px solid gray;
+  margin-top: 30px;
 }

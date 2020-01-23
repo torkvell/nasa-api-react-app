@@ -2,6 +2,7 @@ import React from "react";
 import LikeCounter from "./LikeCounter";
 import AddComment from "./AddComment";
 import Comment from "./Comment";
+import { Link } from "react-router-dom";
 
 export default class cardFooter extends React.Component {
   state = {
@@ -33,11 +34,11 @@ export default class cardFooter extends React.Component {
   render() {
     // copying the array of players because `.sort()` **mutates!**
     const comments_copy = [...this.state.comments];
-    console.log(comments_copy); // <!-- add console.log's if you're not sure!
     return (
       <div>
         <div class="card-action">
-          <a href={this.props.cardLink}>MORE INFO</a>
+          {/* <a href={this.props.cardLink}>MORE INFO</a> */}
+          <Link to={`/card-detail/${this.props.roverId}`}>MORE INFO</Link>
           <div onClick={this.toggleCommentSection} class="card-comment-toggle">
             Comments
           </div>
@@ -47,8 +48,8 @@ export default class cardFooter extends React.Component {
             style={{ display: this.state.showComment ? "block" : "none" }}
           >
             <AddComment addComment={this.addComment} />
+            <div>{comments_copy.map(this.renderComment)}</div>
           </div>
-          <div>{comments_copy.map(this.renderComment)}</div>
         </div>
       </div>
     );

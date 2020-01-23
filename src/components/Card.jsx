@@ -14,7 +14,7 @@ export default class CardItem extends Component {
   componentDidMount = () => {
     // fetch some data
     const response = (fetch(
-      "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=BNhPJtnZK474mPjmaH2nBhjX5YjkQkMdCPHV3x7e"
+      "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=BNhPJtnZK474mPjmaH2nBhjX5YjkQkMdCPHV3x7e&camera=NAVCAM"
     )
       .then(response => response.json())
       // converted to json
@@ -53,12 +53,11 @@ export default class CardItem extends Component {
               <div class="card-content">
                 <p>Camera name: {dataItem.camera.full_name}</p>
               </div>
-              <CardFooter />
+              <CardFooter roverId={dataItem.id} />
             </div>
           </div>
         </div>
       ));
-      console.log(cardArray);
       return <div>{cardArray}</div>;
     }
   }
