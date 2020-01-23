@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 
-export default class LikeCounter extends React.Component {
+export default class LikeCounter extends Component {
   state = {
     numLikes: 0,
     src: "/img/2.png"
@@ -19,6 +19,7 @@ export default class LikeCounter extends React.Component {
           className="likeButton"
           src={this.state.src}
           onClick={this.increment}
+          alt="like button"
         ></img>
         <b className="likeCounter">{this.state.numLikes}</b>
       </div>

@@ -17,17 +17,17 @@ export default class cardFooter extends React.Component {
   };
 
   addComment = comment => {
-    let newComment = {
+    const newComment = {
       id: Math.round(Math.random() * 100000),
       comment
     };
+    //we don't want any side effects so we concat instead of push which mutates
     this.setState({
       comments: this.state.comments.concat(newComment)
     });
   };
 
   renderComment = comment => {
-    console.log(comment);
     return <Comment text={comment.comment} key={comment.id} />;
   };
 
@@ -36,15 +36,17 @@ export default class cardFooter extends React.Component {
     const comments_copy = [...this.state.comments];
     return (
       <div>
-        <div class="card-action">
-          {/* <a href={this.props.cardLink}>MORE INFO</a> */}
+        <div className="card-action">
           <Link to={`/card-detail/${this.props.roverId}`}>MORE INFO</Link>
-          <div onClick={this.toggleCommentSection} class="card-comment-toggle">
+          <div
+            onClick={this.toggleCommentSection}
+            className="card-comment-toggle"
+          >
             Comments
           </div>
           <LikeCounter />
           <div
-            class="commentSection"
+            className="commentSection"
             style={{ display: this.state.showComment ? "block" : "none" }}
           >
             <AddComment addComment={this.addComment} />
