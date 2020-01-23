@@ -13,17 +13,14 @@ export default class CardItem extends Component {
   // activates once the component has been rendered/mounted the first time
   componentDidMount = () => {
     // fetch some data
-    const response = (fetch(
+    fetch(
       "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=BNhPJtnZK474mPjmaH2nBhjX5YjkQkMdCPHV3x7e&camera=NAVCAM"
     )
       .then(response => response.json())
       // converted to json
       .then(response => {
         //turn response object into array
-        const dataArray = response.photos.reduce((array, item) => {
-          array.push(item);
-          return array;
-        }, []);
+        const dataArray = Object.values(response.photos);
         console.log(dataArray);
         // put it in component local state
         this.setState({
@@ -33,7 +30,7 @@ export default class CardItem extends Component {
       }).catch = error => {
       // if the loading fails, set an error state
       this.setState({ error: error });
-    });
+    };
   };
 
   render() {
@@ -43,14 +40,14 @@ export default class CardItem extends Component {
       return <div>{this.state.error}</div>;
     } else {
       const cardArray = this.state.data.map(dataItem => (
-        <div class="row" key={dataItem.id}>
-          <div class="col s12 m7">
-            <div class="card">
-              <div class="card-image">
-                <img src={dataItem.img_src} />
-                <span class="card-title">{dataItem.rover.name}</span>
+        <div className="row" key={dataItem.id}>
+          <div className="col s12 m7">
+            <div className="card">
+              <div className="card-image">
+                <img src={dataItem.img_src} alt="data item" />
+                <span className="card-title">{dataItem.rover.name}</span>
               </div>
-              <div class="card-content">
+              <div className="card-content">
                 <p>Camera name: {dataItem.camera.full_name}</p>
               </div>
               <CardFooter roverId={dataItem.id} />

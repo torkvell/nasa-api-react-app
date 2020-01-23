@@ -6,81 +6,72 @@ import { Route } from "react-router-dom";
 class App extends React.Component {
   render() {
     return (
-      // <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1.0"
-          />
-          <title>Starter Template - Materialize</title>
+      <div>
+        <nav className="light-blue lighten-1" role="navigation">
+          <div className="nav-wrapper container">
+            <a
+              id="logo-container"
+              href="/img/nasa-logo.png"
+              className="brand-logo"
+            >
+              <img
+                id="siteLogo"
+                src="/img/nasa-logo-small.png"
+                alt="some description"
+              ></img>
+            </a>
+            <ul className="right hide-on-med-and-down">
+              <li>
+                <a href="/tosomepage">Navbar Link</a>
+              </li>
+            </ul>
 
-          {/* <!-- CSS  --> */}
-          <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-          />
-        </head>
-        <body>
-          <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container">
-              <a
-                id="logo-container"
-                href="/img/nasa-logo.png"
-                class="brand-logo"
-              >
-                <img id="siteLogo" src="/img/nasa-logo-small.png"></img>
-              </a>
-              <ul class="right hide-on-med-and-down">
-                <li>
-                  <a href="#">Navbar Link</a>
-                </li>
-              </ul>
-
-              <ul id="nav-mobile" class="sidenav">
-                <li>
-                  <a href="#">Navbar Link</a>
-                </li>
-              </ul>
-              <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-              </a>
-            </div>
-          </nav>
-          <div class="container">
-            <div class="section">
-              {/* <!--   Card Section   --> */}
-              <Route exact path="/" component={CardItem} />
-              <Route path="/card-detail/:id" component={CardDetailContainer} />
-            </div>
-            <br />
-            <br />
+            <ul id="nav-mobile" className="sidenav">
+              <li>
+                <a href="/tosomepage">Navbar Link</a>
+              </li>
+            </ul>
+            <a
+              href="/tosomepage"
+              data-target="nav-mobile"
+              className="sidenav-trigger"
+            >
+              <i className="material-icons">menu</i>
+            </a>
           </div>
+        </nav>
+        <div className="container">
+          <div className="section">
+            {/* <!--   Card Section   --> */}
+            <Route exact path="/" component={CardItem} />
+            <Route path="/card-detail/:id" component={CardDetailContainer} />
+          </div>
+          <br />
+          <br />
+        </div>
 
-          <footer class="page-footer orange">
-            <div class="container">
-              <div class="row"></div>
+        <footer className="page-footer orange">
+          <div className="container">
+            <div className="row"></div>
+          </div>
+          <div className="footer-copyright">
+            <div className="container">
+              Made by
+              <a
+                className="orange-text text-lighten-3"
+                href="http://materializecss.com"
+              >
+                &nbsp;&nbsp;Toralf & Viktoria
+              </a>
             </div>
-            <div class="footer-copyright">
-              <div class="container">
-                Made by
-                <a
-                  class="orange-text text-lighten-3"
-                  href="http://materializecss.com"
-                >
-                  &nbsp;&nbsp;Toralf & Viktoria
-                </a>
-              </div>
-            </div>
-          </footer>
+          </div>
+        </footer>
 
-          {/* <!--  Scripts--> */}
-          <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-          <script src="js/materialize.js"></script>
-          <script src="js/init.js"></script>
-        </body>
-      </html>
+        {/* <!--  Scripts--> */}
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+      </div>
     );
   }
 }

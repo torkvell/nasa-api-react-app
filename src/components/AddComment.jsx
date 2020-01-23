@@ -24,13 +24,13 @@ export default class AddComment extends Component {
       <form onSubmit={this.handleSubmit}>
         <input
           onChange={this.handleChange}
-          class="commentInput"
+          className="commentInput"
           type="text"
           name="comment"
           placeholder="Type your comment.."
           value={this.state.comment}
         />
-        <input type="submit" value="Comment" class="commentButton" />
+        <input type="submit" value="Comment" className="commentButton" />
       </form>
     );
   }
