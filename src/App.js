@@ -1,5 +1,7 @@
 import React from "react";
 import CardItem from "./components/Card";
+import CardDetailContainer from "./components/cardDetail/CardDetailContainer";
+import { Route } from "react-router-dom";
 
 class App extends React.Component {
   render() {
@@ -49,7 +51,8 @@ class App extends React.Component {
           <div class="container">
             <div class="section">
               {/* <!--   Card Section   --> */}
-              <CardItem />
+              <Route exact path="/" component={CardItem} />
+              <Route path="/card-detail/:id" component={CardDetailContainer} />
             </div>
             <br />
             <br />

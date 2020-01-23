@@ -31,7 +31,6 @@ export default class AddComment extends Component {
           value={this.state.comment}
         />
         <input type="submit" value="Comment" class="commentButton" />
-        <div class="commentResult"></div>
       </form>
     );
   }
