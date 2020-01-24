@@ -14,15 +14,19 @@ button > a:hover {
 }
 
 .card {
-  display: inline-flex;
+  display: inline-flex !important;
   margin-right: 5%;
   margin-top: 5%;
 }
 
-/* .comment {
-    display: block;
+.spinner-border {
+  margin-left: 50%;
+  margin-top: 15%;
+}
 
-} */
+.nasaFetchText {
+  margin-left: 40%;
+}
 
 li.comment {
   display: flex;
