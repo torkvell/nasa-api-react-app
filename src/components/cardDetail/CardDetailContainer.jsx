@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import CardDetail from "./CardDetail";
+import { Carousel } from "react-responsive-carousel";
 
 export default class CardDetailContainer extends Component {
   state = {
-    cardData: null
+    roverData: null,
+    roverName: null,
+    loading: true
   };
 
   componentDidMount() {
@@ -15,12 +18,21 @@ export default class CardDetailContainer extends Component {
     ];
     Promise.all(urls.map(url => fetch(url).then(resp => resp.json()))).then(
       respArray => {
+        //create variables from dataArray
+        const roverData = respArray[id];
+        const roverName = respArray[id].photos[id].rover.name;
+        const roverPictures = respArray[id].photos.map(item => {
+          return item.img_src;
+        });
+        console.log(roverData);
+        console.log(roverPictures);
         // put it in component local state
         this.setState({
           loading: false,
-          data: respArray[id]
+          roverData: roverData,
+          roverName: roverName,
+          roverPictures: roverPictures
         });
-        console.log(this.state.data);
       }
     ).catch = error => {
       // if the loading fails, set an error state
@@ -28,15 +40,20 @@ export default class CardDetailContainer extends Component {
     };
   }
 
-  updateState(dataArray) {
-    this.setState({
-      cardData: dataArray
-    });
-  }
-
   render() {
-    const { id } = this.props.match.params;
-    console.log(id);
-    return <CardDetail id={id} cardData={this.state.cardData} />;
+    if (this.state.loading) {
+      return <div>Loading...</div>;
+    } else if (this.state.error) {
+      return <div>{this.state.error}</div>;
+    } else {
+      const { id } = this.props.match.params;
+      return (
+        <CardDetail
+          id={id}
+          roverName={this.state.roverName}
+          roverPictures={this.state.roverPictures}
+        />
+      );
+    }
   }
 }
