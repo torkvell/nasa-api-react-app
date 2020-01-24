@@ -9,7 +9,7 @@ button > a:hover {
 
 .card-action-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 10px;
 }
 
@@ -17,4 +17,22 @@ button > a:hover {
   display: inline-flex;
   margin-right: 5%;
   margin-top: 5%;
+}
+
+/* .comment {
+    display: block;
+
+} */
+
+li.comment {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul {
+  display: block;
+}
+
+form {
+  text-align: center;
 }
