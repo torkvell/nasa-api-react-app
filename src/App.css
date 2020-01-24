@@ -9106,11 +9106,11 @@ a{
 /* like-button styles */
 .likeCounter,
 .likeButton {
-  padding: 5px;
+  padding: 10px;
   vertical-align: middle;
   display: inline-block;
-  margin-top: -8px;
   cursor: pointer;
+  margin-top: 4px;
 }
 
 #likeDiv {
@@ -9118,6 +9118,14 @@ a{
   margin-left: 18%;
 }
 
+.likeButtonCard,
+.likeCounterCard {
+  padding: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -8px;
+  cursor: pointer;
+}
 
 /* card action style*/
 .card-action {
@@ -9164,4 +9172,9 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 p.commentText {
   border-bottom: 1px solid gray;
   margin-top: 30px;
+}
+
+li.comment {
+  display: flex;
+  justify-content: space-between;
 }
