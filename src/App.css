@@ -139,3 +139,12 @@ img#logoNASA {
   width: 80px;
   margin-top: -15px;
 }
+
+nav {
+  max-width: none !important;
+  height: 80px;
+  margin: none !important;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+}

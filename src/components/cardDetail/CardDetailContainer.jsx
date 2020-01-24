@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CardDetail from "./CardDetail";
 import { Carousel } from "react-responsive-carousel";
 import "./cardDetail.css";
+import Spinner from "react-bootstrap/Spinner";
 
 export default class CardDetailContainer extends Component {
   state = {
@@ -44,7 +45,14 @@ export default class CardDetailContainer extends Component {
 
   render() {
     if (this.state.loading) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <Spinner class="spinner" animation="border" role="status">
+            <span className="sr-only"></span>
+          </Spinner>
+          <div class="nasaFetchText">Fetching data from NASA</div>
+        </div>
+      );
     } else if (this.state.error) {
       return <div>{this.state.error}</div>;
     } else {
