@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CardFooter from "./CardFooter";
+import { Card } from "react-bootstrap";
+import "./card.css";
 
 export default class CardItem extends Component {
   // const { loading, data, error } = this.state;
@@ -58,22 +60,14 @@ export default class CardItem extends Component {
       return <div>{this.state.error}</div>;
     } else {
       const cardArray = this.state.data.map((rover, index) => (
-        <div className="row" key={index}>
-          <div className="col s12 m7">
-            <div className="card">
-              <div className="card-image">
-                <img src={rover.photos[index].img_src} alt="data item" />
-                <span className="card-title">
-                  {rover.photos[index].rover.name}
-                </span>
-              </div>
-              <div className="card-content">
-                <p>Status: {rover.photos[index].rover.status}</p>
-              </div>
-              <CardFooter roverId={index} />
-            </div>
-          </div>
-        </div>
+        <Card style={{ width: "18rem" }} key={index}>
+          <Card.Img variant="top" src={rover.photos[index].img_src} />
+          <Card.Body>
+            <Card.Title>{rover.photos[index].rover.name}</Card.Title>
+            <Card.Text>Status: {rover.photos[index].rover.status}</Card.Text>
+          </Card.Body>
+          <CardFooter roverId={index} />
+        </Card>
       ));
       return <div>{cardArray}</div>;
     }

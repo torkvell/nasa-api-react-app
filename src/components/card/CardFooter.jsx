@@ -3,6 +3,7 @@ import LikeCounter from "./LikeCounter";
 import LikeComment from "./LikeComment";
 import AddComment from "./AddComment";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 export default class cardFooter extends React.Component {
   state = {
@@ -64,14 +65,17 @@ export default class cardFooter extends React.Component {
     return (
       <div>
         <div className="card-action">
-          <Link to={`/card-detail/${this.props.roverId}`}>MORE INFO</Link>
-          <div
-            onClick={this.toggleCommentSection}
-            className="card-comment-toggle"
-          >
-            Add Comment
+          <div class="card-action-buttons">
+            <Button variant="primary">
+              <Link to={`/card-detail/${this.props.roverId}`}>MORE INFO</Link>
+            </Button>
+            <Button
+              onClick={this.toggleCommentSection}
+              className="card-comment-toggle"
+            >
+              Add Comment
+            </Button>
           </div>
-          <LikeCounter />
           <div
             className="commentSection"
             style={{ display: this.state.showComment ? "block" : "none" }}
