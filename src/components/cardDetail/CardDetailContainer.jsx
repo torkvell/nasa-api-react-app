@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import CardDetail from "./CardDetail";
 import { Carousel } from "react-responsive-carousel";
+import "./cardDetail.css";
 
 export default class CardDetailContainer extends Component {
   state = {
     roverData: null,
     roverName: null,
-    loading: true
+    loading: true,
+    roverPictures: null
   };
 
   componentDidMount() {
@@ -19,13 +21,13 @@ export default class CardDetailContainer extends Component {
     Promise.all(urls.map(url => fetch(url).then(resp => resp.json()))).then(
       respArray => {
         //create variables from dataArray
-        const roverData = respArray[id];
+        const roverData = respArray[id].photos;
+        console.log(roverData);
         const roverName = respArray[id].photos[id].rover.name;
         const roverPictures = respArray[id].photos.map(item => {
           return item.img_src;
         });
-        console.log(roverData);
-        console.log(roverPictures);
+
         // put it in component local state
         this.setState({
           loading: false,
@@ -52,6 +54,7 @@ export default class CardDetailContainer extends Component {
           id={id}
           roverName={this.state.roverName}
           roverPictures={this.state.roverPictures}
+          roverData={this.state.roverData}
         />
       );
     }

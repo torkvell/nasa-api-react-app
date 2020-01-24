@@ -11,11 +11,17 @@ export default class CardDetails extends Component {
         <h3>Rover name: {this.props.roverName}</h3>
         <div class="carousel" id="hoverPictureWrapper">
           <Carousel>
-            {this.props.roverPictures.map(picture => {
+            {this.props.roverData.map(obj => {
+              console.log(obj);
+              const imgSrc = obj.img_src;
+              const cameraName = obj.camera.full_name;
+              const roverLandingDate = obj.rover.landing_date;
               return (
                 <div>
-                  <img src={picture} />
-                  <p className="legend">Legend 1</p>
+                  <img src={imgSrc} />
+                  <p className="legend">
+                    {cameraName}: {roverLandingDate}
+                  </p>
                 </div>
               );
             })}
