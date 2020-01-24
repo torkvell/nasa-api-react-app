@@ -1,8 +1,8 @@
-a {
+button > a {
   color: white !important;
 }
 
-a:hover {
+button > a:hover {
   color: white !important;
   text-decoration: none !important;
 }
@@ -11,4 +11,10 @@ a:hover {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.card {
+  display: inline-flex;
+  margin-right: 5%;
+  margin-top: 5%;
 }
