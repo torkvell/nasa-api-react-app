@@ -1,7 +1,7 @@
 import React from "react";
 import LikeCounter from "./LikeCounter";
+import LikeComment from "./LikeComment";
 import AddComment from "./AddComment";
-import Comment from "./Comment";
 import { Link } from "react-router-dom";
 
 export default class cardFooter extends React.Component {
@@ -17,23 +17,50 @@ export default class cardFooter extends React.Component {
   };
 
   addComment = comment => {
-    const newComment = {
-      id: Math.round(Math.random() * 100000),
-      comment
-    };
-    //we don't want any side effects so we concat instead of push which mutates
+    if (comment) {
+      const newComment = {
+        id: Math.round(Math.random() * 100000),
+        comment,
+        like: 0,
+        src: "/img/2.png"
+      };
+      //we don't want any side effects so we concat instead of push which mutates
+      this.setState({
+        comments: this.state.comments.concat(newComment)
+      });
+    }
+  };
+
+  addLikeToComment = id => {
+    const updatedComments = this.state.comments.map(c =>
+      c.id === id ? { ...c, like: c.like + 1, src: "./img/1.png" } : c
+    );
+
     this.setState({
-      comments: this.state.comments.concat(newComment)
+      comments: updatedComments
+      // src: "./img/1.png"
     });
   };
 
   renderComment = comment => {
-    return <Comment text={comment.comment} key={comment.id} />;
+    return (
+      <LikeComment
+        id={comment.id}
+        comment={comment.comment}
+        like={comment.like}
+        src={comment.src}
+        key={comment.id}
+        addLike={this.addLikeToComment}
+      />
+    );
   };
+  // renderComment = comment => {
+  //   return <Comment text={comment.comment} key={comment.id} />;
+  // };
 
   render() {
     // copying the array of players because `.sort()` **mutates!**
-    const comments_copy = [...this.state.comments];
+    // const comments_copy = [...this.state.comments];
     return (
       <div>
         <div className="card-action">
@@ -42,7 +69,7 @@ export default class cardFooter extends React.Component {
             onClick={this.toggleCommentSection}
             className="card-comment-toggle"
           >
-            Comments
+            Add Comment
           </div>
           <LikeCounter />
           <div
@@ -50,7 +77,11 @@ export default class cardFooter extends React.Component {
             style={{ display: this.state.showComment ? "block" : "none" }}
           >
             <AddComment addComment={this.addComment} />
-            <div>{comments_copy.map(this.renderComment)}</div>
+            <ul>
+              {[...this.state.comments]
+                .sort((a, b) => b.like - a.like)
+                .map(this.renderComment)}
+            </ul>
           </div>
         </div>
       </div>
