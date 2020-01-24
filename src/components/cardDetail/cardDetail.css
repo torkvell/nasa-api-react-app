@@ -1,3 +1,17 @@
 ul.control-dots {
   display: none;
 }
+
+h1 {
+  color: #fff;
+  margin-left: 10px;
+  margin-right: auto;
+  font-size: 24px;
+  font-family: "Verdana", cursive;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 40px !important;
+  height: 40px !important;
+}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-import { Carousel } from "react-responsive-carousel";
+import Carousel from "react-bootstrap/Carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default class CardDetails extends Component {
@@ -17,12 +16,18 @@ export default class CardDetails extends Component {
               const cameraName = obj.camera.full_name;
               const roverLandingDate = obj.rover.landing_date;
               return (
-                <div>
-                  <img src={imgSrc} />
-                  <p className="legend">
-                    {cameraName}: {roverLandingDate}
-                  </p>
-                </div>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src={imgSrc}
+                    alt="First slide"
+                  />
+                  <Carousel.Caption>
+                    <h1>
+                      {cameraName}: {roverLandingDate}
+                    </h1>
+                  </Carousel.Caption>
+                </Carousel.Item>
               );
             })}
           </Carousel>
@@ -32,3 +37,16 @@ export default class CardDetails extends Component {
     );
   }
 }
+
+// <Carousel>
+//   <Carousel.Item>
+//     <img
+//       className="d-block w-100"
+//       src="holder.js/800x400?text=First slide&bg=373940"
+//       alt="First slide"
+//     />
+//     <Carousel.Caption>
+//       <h3>First slide label</h3>
+//       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+//     </Carousel.Caption>
+//   </Carousel.Item>

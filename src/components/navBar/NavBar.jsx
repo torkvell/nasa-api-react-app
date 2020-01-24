@@ -4,10 +4,15 @@ import { NavDropdown } from "react-bootstrap";
 import React, { Component } from "react";
 
 export default class NavigationBar extends Component {
+  state = {
+    imgSrc: "/img/nasa-logo-small.png"
+  };
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img id="logoNASA" src={this.state.imgSrc}></img>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

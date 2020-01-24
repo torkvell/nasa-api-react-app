@@ -135,15 +135,7 @@ ul li a {
     z-index: 999;
   }
 }
-a {
-  color: white;
-}
-
-a:hover {
-  color: white;
-  text-decoration: none;
-}
-
-img#siteLogo {
+img#logoNASA {
   width: 80px;
+  margin-top: -15px;
 }

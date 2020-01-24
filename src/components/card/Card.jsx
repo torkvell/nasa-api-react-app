@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CardFooter from "./CardFooter";
 import { Card } from "react-bootstrap";
 import "./card.css";
+import Spinner from "react-bootstrap/Spinner";
 
 export default class CardItem extends Component {
   // const { loading, data, error } = this.state;
@@ -12,27 +13,8 @@ export default class CardItem extends Component {
     data: [],
     error: false
   };
-  // activates once the component has been rendered/mounted the first time
+  //activates once the component has been rendered/mounted the first time
   componentDidMount = () => {
-    // fetch some data
-    // fetch(
-    //   "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=BNhPJtnZK474mPjmaH2nBhjX5YjkQkMdCPHV3x7e"
-    // )
-    //   .then(response => response.json())
-    //   // converted to json
-    //   .then(response => {
-    //     //turn response object into array
-    //     const dataArray = Object.values(response.photos);
-    //     console.log(dataArray);
-    //     // put it in component local state
-    //     this.setState({
-    //       loading: false,
-    //       data: dataArray
-    //     });
-    //   }).catch = error => {
-    //   // if the loading fails, set an error state
-    //   this.setState({ error: error });
-    // };
     const urls = [
       "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=BNhPJtnZK474mPjmaH2nBhjX5YjkQkMdCPHV3x7e",
       "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1000&api_key=BNhPJtnZK474mPjmaH2nBhjX5YjkQkMdCPHV3x7e",
@@ -55,7 +37,14 @@ export default class CardItem extends Component {
 
   render() {
     if (this.state.loading) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <Spinner class="spinner" animation="border" role="status">
+            <span className="sr-only"></span>
+          </Spinner>
+          <div class="nasaFetchText">Fetching data from NASA</div>
+        </div>
+      );
     } else if (this.state.error) {
       return <div>{this.state.error}</div>;
     } else {
