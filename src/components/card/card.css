@@ -9,7 +9,7 @@ button > a:hover {
 
 .card-action-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 10px;
 }
 
@@ -26,4 +26,17 @@ button > a:hover {
 
 .nasaFetchText {
   margin-left: 40%;
+}
+
+li.comment {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul {
+  display: block;
+}
+
+form {
+  text-align: center;
 }
