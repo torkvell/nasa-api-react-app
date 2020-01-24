@@ -1,0 +1,14 @@
+a {
+  color: white !important;
+}
+
+a:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.card-action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
